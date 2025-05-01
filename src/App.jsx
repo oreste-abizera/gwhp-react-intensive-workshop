@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import "./App.css";
+import Card from "./components/Card";
+import Greeting from "./components/Greeting";
+import Profile from "./components/Profile";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const user = {
+    name: "Alex Johnson",
+    email: "alex@example.com",
+    role: "Developer",
+    joinDate: "January 2023",
+    avatar: "https://placehold.co/400",
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <h1>React Components Demo</h1>
+
+      <Greeting name="Student" role="React Developer" />
+
+      <Card title="About Components">
+        <p>Components are the building blocks of React applications.</p>
+        <p>They can be composed together to build complex UIs.</p>
+      </Card>
+
+      <Profile user={user} />
+    </div>
+  );
 }
 
-export default App
+export default App;
